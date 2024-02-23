@@ -1,0 +1,47 @@
+/* index */
+.wrapper{
+  display: flex;
+}
+
+/* _side_bar */
+.sidebar{
+  background-color: #253141;
+  width: 300px;
+  height: 100vh;
+}
+
+.sidebar_header{
+  height: 100px;
+  padding: 0 20px;
+}
+
+.sidebar_main{
+  background-color: #2f3e51;
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+}
+
+/* _main_chat */
+.mainchat{
+  background-color: #ffffff;
+  width: calc(100vw - 300px);
+  height: 100vh;
+}
+
+.mainchat_header{
+  background-color: #ffffff;
+  height: 100px;
+  padding: 0 40px;
+}
+
+.mainchat_main{
+  background-color: #fafafa;
+  height: calc(100vh - 100px - 90px);
+  padding: 46px 20px 0;
+}
+
+.mainchat_footer{
+  background-color: #dddddd;
+  height: 90px;
+  padding: 20px 40px;
+}
