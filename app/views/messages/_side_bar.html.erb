@@ -3,17 +3,14 @@
     <%= link_to current_user.name, edit_user_path(current_user) %>
   </div>
   <div class="sidebar-header_chatbtn">
-    <a href="#">チャットを作成する</a>
+    <%= link_to 'チャットを作成する', new_room_path %>
   </div>
 </div>
 
 <div class="sidebar-main">
-  <div class="sidebar-main_chatroom"><a href="#">techroom1</a></div>
-  <div class="sidebar-main_chatroom"><a href="#">techroom2</a></div>
-  <div class="sidebar-main_chatroom"><a href="#">techroom3</a></div>
-  <div class="sidebar-main_chatroom"><a href="#">techroom4</a></div>
-  <div class="sidebar-main_chatroom"><a href="#">techroom5</a></div>
-  <div class="sidebar-main_chatroom"><a href="#">techroom6</a></div>
-  <div class="sidebar-main_chatroom"><a href="#">techroom7</a></div>
-  <div class="sidebar-main_chatroom"><a href="#">techroom8</a></div>
+  <% current_user.rooms.each do |room| %>
+  <div class="sidebar-main_chatroom">
+    <a href="#"><%= room.name %></a>
+  </div>
+  <% end %>
 </div>
