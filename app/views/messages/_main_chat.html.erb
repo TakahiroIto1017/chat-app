@@ -1,44 +1,35 @@
-<div class="mainchat-header">
-  <div class="mainchat-header_roomname">hogefuga</div>
-  <div class="mainchat-header_endbtn"><a href="#">チャットを終了する</a></div>
+<div class="chat-header">
+
+  <div class="left-header">
+    <div class="header-title">
+      <%= @room.name %>
+    </div>
+  </div>
+  <div class="right-header">
+    <div class="header-button">
+      <%= link_to "チャットを終了する", room_path(@room), data: { turbo_method: :delete } %>
+    </div>
+  </div>
+
 </div>
 
-<div class="mainchat-main">
+<div class="messages">
 
-  <div class="message">
-    <div class="message_header">
-      <div class="message_name">Tom</div>
-      <div class="message_date">2020/3/31(Wed) 12:43:30</div>
-    </div>
-    <div class="message_text">
-      おはよう
-    </div>
-  </div>
-
-  <div class="message">
-    <div class="message_header">
-      <div class="message_name">Tom</div>
-      <div class="message_date">2020/3/31(Wed) 12:43:30</div>
-    </div>
-    <div class="message_text">
-      おはよう
-    </div>
-  </div>
+  <%= render partial: 'message', collection: @messages %>
 
 </div>
 
 <div class="mainchat-footer">
 
-  <div class="form_data">
-    <input class="form_message" placeholder="type a message">
-    <label class="form-image">
-      <span class="image-file">画像</span>
-      <input type="file" class="hidden">
-    </label>
-  </div>
-
-  <div class="form_btn">
-    <input class="form_submit" type="submit" value="送信">
-  </div>
+  <%= form_with model: [@room, @message], html: {class: "form"}, local: true do |f|%>
+    <div class="form-input">
+      <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+      <label class="form-image">
+        <span class="image-file">画像</span>
+        <%= f.file_field :image, class: 'hidden' %>
+      </label>
+    </div>
+    <%= f.submit '送信', class: 'form-submit' %>
+  <% end %>
 
 </div>
